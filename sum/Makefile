@@ -1,5 +1,5 @@
-JAVA_HOME=/home/zyedidia/programming/jdk/build/linux-x86_64-server-release/jdk
-JAVA=/home/zyedidia/programming/jdk/build/linux-x86_64-server-release/jdk/bin/java
+JAVA_HOME=../jdk/build/linux-x86_64-server-release/jdk
+JAVA=../jdk/build/linux-x86_64-server-release/jdk/bin/java
 LFIBIND=../lfi-bind/lfi-bind
 LFICXX=x86_64-lfi-linux-musl-clang++
 

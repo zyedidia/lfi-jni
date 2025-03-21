@@ -24,6 +24,7 @@ go build
 # Build JDK
 
 ```
+git clone https://github.com/zyedidia/jdk -b lfi-jdk-21 --depth 1
 cd jdk
 bash configure
 cd build/linux-x86_64-server-release

@@ -10,6 +10,8 @@ git submodule update --init --depth 1
 
 Download the appropriate compiler from the LFI releases page: https://github.com/zyedidia/lfi/releases.
 
+If you don't have the LFI tools installed separately, you'll want to put `x86_64-lfi-clang/lfi-bin` on your path. Otherwise, just put `x86_64-lfi-clang/lfi-clang` on your path.
+
 The examples are currently set up to use the `x86_64-lfi-clang` compiler.
 
 # Build LFI-bind

@@ -1,6 +1,6 @@
 public class Sum {
     static {
-        System.loadLibrary("native_native");
+        System.loadLibrary("native_lfi");
     }
 
     public static void main(String[] args) {

@@ -1,0 +1,4 @@
+[submodule "jdk"]
+	path = jdk
+	url = https://github.com/zyedidia/jdk
+    shallow = true

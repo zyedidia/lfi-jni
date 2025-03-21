@@ -3,7 +3,7 @@
 First initialize the submodules:
 
 ```
-git submodule update --init --depth 1
+git submodule update --init
 ```
 
 # Install LFI

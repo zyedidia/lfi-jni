@@ -14,6 +14,17 @@ If you don't have the LFI tools installed separately, you'll want to put `x86_64
 
 The examples are currently set up to use the `x86_64-lfi-clang` compiler.
 
+You'll also need to install `liblfi` if you don't have it already:
+
+```
+git clone https://github.com/zyedidia/lfi
+cd lfi
+meson setup build -Dliblfi-only=true
+cd build
+ninja
+sudo meson install
+```
+
 # Build LFI-bind
 
 ```

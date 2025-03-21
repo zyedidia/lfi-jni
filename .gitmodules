@@ -2,3 +2,6 @@
 	path = jdk
 	url = https://github.com/zyedidia/jdk
     shallow = true
+[submodule "lfi-bind"]
+	path = lfi-bind
+	url = https://github.com/zyedidia/lfi-bind

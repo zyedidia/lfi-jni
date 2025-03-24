@@ -1,3 +1,6 @@
 [submodule "lfi-bind"]
 	path = lfi-bind
 	url = https://github.com/zyedidia/lfi-bind
+[submodule "lz4/lz4"]
+	path = lz4/lz4
+	url = https://github.com/lz4/lz4

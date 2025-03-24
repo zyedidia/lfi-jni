@@ -1,6 +1,6 @@
 public class Call {
     static {
-        System.loadLibrary("native_lfi");
+        System.loadLibrary("call_lfi");
     }
 
     public native void nativeMethod();

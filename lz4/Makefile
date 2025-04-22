@@ -1,8 +1,11 @@
-JAVA_HOME=../jdk/build/linux-x86_64-server-release/jdk
-JAVA=../jdk/build/linux-x86_64-server-release/jdk/bin/java
+ARCH=aarch64
+
+JAVA_HOME=../jdk/build/linux-$(ARCH)-server-release/jdk
+# JAVA=../jdk/build/linux-$(ARCH)-server-release/jdk/bin/java
+JAVA=java
 LFIBIND=../lfi-bind/lfi-bind
-LFICXX=x86_64-lfi-linux-musl-clang++
-LFICC=x86_64-lfi-linux-musl-clang
+LFICXX=/opt/aarch64-lfi-sysext-clang/lfi-clang/$(ARCH)-lfi-linux-musl-clang++
+LFICC=/opt/aarch64-lfi-sysext-clang/lfi-clang/$(ARCH)-lfi-linux-musl-clang
 
 LZ4_INCLUDE = lz4/lib
 
@@ -17,7 +20,7 @@ all: LZ4Compressor.class libnative_lfi.so libnative_native.so
 libnative.a: $(LZ4_OBJS)
 	ar rcs $@ $^
 libnative_lfi.so: libnative.a
-	$(LFIBIND) -dyn -o $@ $<
+	$(LFIBIND) -lficc $(LFICC) -dyn -o $@ $<
 libnative_native.so: $(LZ4_SRCS) LZ4Compressor.h
 	clang -shared -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -I$(LZ4_INCLUDE) -o $@ -O2 -fPIC $(LZ4_SRCS)
 %.o: %.c LZ4Compressor.h

@@ -1,17 +1,18 @@
+ARCH=aarch64
 CLASS=Call
-
-JAVA_HOME=../jdk/build/linux-x86_64-server-release/jdk
-JAVA=../jdk/build/linux-x86_64-server-release/jdk/bin/java
+JAVA_HOME=../jdk/build/linux-$(ARCH)-server-release/jdk
+# JAVA=../jdk/build/linux-$(ARCH)-server-release/jdk/bin/java
+JAVA=java
 LFIBIND=../lfi-bind/lfi-bind
-LFICXX=x86_64-lfi-linux-musl-clang++
-LFICC=x86_64-lfi-linux-musl-clang
+LFICXX=/opt/aarch64-lfi-sysext-clang/lfi-clang/$(ARCH)-lfi-linux-musl-clang++
+LFICC=/opt/aarch64-lfi-sysext-clang/lfi-clang/$(ARCH)-lfi-linux-musl-clang
 
 all: $(CLASS).class libcall_lfi.so libcall_native.so
 
 libcall_lfi.a: $(CLASS).o
 	ar rcs $@ $<
 libcall_lfi.so: libcall_lfi.a
-	$(LFIBIND) -dyn -o $@ $<
+	$(LFIBIND) -lficc $(LFICC) -dyn -o $@ $<
 libcall_native.so: $(CLASS).c $(CLASS).h
 	clang -shared -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $< -o $@ -O2 -fPIC
 $(CLASS).o: $(CLASS).c $(CLASS).h
